@@ -231,3 +231,4 @@ input:focus, textarea:focus{outline:2px solid rgba(110,168,254,0.35)}
   }
   .menu.open{display:flex}
 }
+.hp { display: none !important; }

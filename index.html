@@ -159,7 +159,15 @@
         <h2>Contact</h2>
         <p class="muted">Tu me décris ton besoin, je te réponds rapidement.</p>
 
-        <form class="form" id="contactForm">
+        <form
+          class="form"
+          id="contactForm"
+          action="https://formspree.io/f/mzdzlwvo"
+          method="POST"
+        >
+          <input type="hidden" name="_subject" value="Nouveau message - Site vitrine" />
+          <input type="text" name="_gotcha" class="hp" tabindex="-1" autocomplete="off" />
+
           <label>
             Nom
             <input required name="name" type="text" placeholder="Ton nom" />
@@ -175,7 +183,7 @@
             <textarea required name="message" rows="5" placeholder="Dis-moi ce que tu veux construire ou refondre"></textarea>
           </label>
 
-          <button class="btn" type="submit">Envoyer</button>
+          <button class="btn" id="submitBtn" type="submit">Envoyer</button>
           <p class="form-note" id="formNote" aria-live="polite"></p>
         </form>
       </div>
@@ -210,14 +218,47 @@
     // Année auto
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    // Faux envoi de formulaire (pour l’instant)
+    // Envoi Formspree (AJAX)
     const form = document.getElementById("contactForm");
     const note = document.getElementById("formNote");
+    const submitBtn = document.getElementById("submitBtn");
 
-    form.addEventListener("submit", (e) => {
+    form.addEventListener("submit", async (e) => {
       e.preventDefault();
-      note.textContent = "Message prêt. (Plus tard on branchera un vrai envoi.)";
-      form.reset();
+
+      // Anti spam: si le champ honeypot est rempli, on fait comme si tout allait bien.
+      const gotcha = form.querySelector('input[name="_gotcha"]');
+      if (gotcha && gotcha.value.trim() !== "") {
+        note.textContent = "Merci ! Ton message a bien été envoyé ✅";
+        form.reset();
+        return;
+      }
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = "Envoi...";
+      note.textContent = "Envoi en cours...";
+
+      try {
+        const formData = new FormData(form);
+
+        const res = await fetch(form.action, {
+          method: form.method,
+          body: formData,
+          headers: { "Accept": "application/json" }
+        });
+
+        if (res.ok) {
+          note.textContent = "Merci ! Ton message a bien été envoyé ✅";
+          form.reset();
+        } else {
+          note.textContent = "Oups, l’envoi a échoué. Réessaie ou contacte-moi par email.";
+        }
+      } catch (err) {
+        note.textContent = "Erreur réseau. Vérifie ta connexion et réessaie.";
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = "Envoyer";
+      }
     });
   </script>
 </body>
