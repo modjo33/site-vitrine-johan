@@ -155,7 +155,7 @@ h1{font-size:44px; line-height:1.05; margin:0 0 12px}
 .section.alt{
   background:rgba(255,255,255,0.03);
   border-top:1px solid var(--border);
-  border-bottom:1px solid var(--border)
+  border-bottom:1px solid var(--border);
 }
 h2{font-size:30px; margin:0 0 10px}
 .muted{color:var(--muted); margin:0 0 18px}
@@ -214,7 +214,7 @@ h2{font-size:30px; margin:0 0 10px}
 .price ul{margin:0; padding-left:18px; color:var(--muted)}
 .featured{
   border-color: rgba(110,168,254,0.5);
-  box-shadow: 0 0 0 1px rgba(110,168,254,0.2) inset
+  box-shadow: 0 0 0 1px rgba(110,168,254,0.2) inset;
 }
 
 .form{
@@ -305,34 +305,59 @@ input:focus, textarea:focus{outline:2px solid rgba(110,168,254,0.35)}
   /* enlever le style bouton natif */
   appearance:none;
   -webkit-appearance:none;
-  border:1px solid var(--border); /* réaffirme la border de .card */
+  border:1px solid var(--border);
   font: inherit;
 }
 
 .portfolio-card:hover{ filter: brightness(1.05); }
 .portfolio-card:active{ transform: translateY(1px); }
 
+/* ✅ Lisibilité Réalisations (la correction que tu veux) */
+#portfolio .card h3{
+  color: var(--text);
+  font-weight: 750;
+}
+
+#portfolio .card p{
+  color: #cbd5e1; /* plus clair que --muted */
+}
+
+/* Bonus: hover propre sur les cartes portfolio */
+#portfolio .portfolio-card{
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, filter 0.2s ease;
+}
+#portfolio .portfolio-card:hover{
+  border-color: rgba(110,168,254,0.40);
+  box-shadow: 0 0 0 1px rgba(110,168,254,0.15);
+}
+
 /* Modal */
 .modal{
   position:fixed;
   inset:0;
   display:none;
-  z-index:50;
+  z-index:9999;
 }
 
-.modal.open{ display:block; }
+.modal.open{
+  display:grid;
+  place-items:center;
+}
 
 .modal-backdrop{
   position:absolute;
   inset:0;
-  background:rgba(0,0,0,0.55);
+  background:rgba(0,0,0,0.60);
 }
 
 .modal-card{
   position:relative;
   width:min(720px, 92%);
-  margin:8vh auto;
-  background:rgba(18,20,27,0.95);
+  max-height:85vh;
+  overflow:auto;
+  margin:0;
+
+  background:rgba(18,20,27,0.96);
   border:1px solid var(--border);
   border-radius:18px;
   padding:16px;
@@ -414,10 +439,6 @@ input:focus, textarea:focus{outline:2px solid rgba(110,168,254,0.35)}
     gap:12px;
   }
   .menu.open{display:flex}
-
-  .modal-card{
-    margin: 10vh auto;
-  }
 }
 
 /* UX: mobile confort (pouce-friendly) */
