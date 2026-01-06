@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Johan | Création & Refonte de sites web</title>
+  <meta name="description" content="Création de sites web modernes pour entreprises et refonte de sites existants. Rapide, responsive, sur-mesure." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <header class="header">
+    <div class="container nav">
+      <a class="logo" href="#top">Johan<span>.</span></a>
+
+      <button class="burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="menu" id="menu">
+        <a href="#services">Services</a>
+        <a href="#process">Process</a>
+        <a href="#portfolio">Réalisations</a>
+        <a href="#offres">Offres</a>
+        <a class="btn" href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <h1>Je crée des sites web modernes pour les entreprises.</h1>
+          <p class="lead">Création de zéro ou refonte de site existant. Un site rapide, responsive et clair, pensé pour convertir.</p>
+          <div class="cta">
+            <a class="btn" href="#contact">Demander un devis</a>
+            <a class="btn ghost" href="#portfolio">Voir des exemples</a>
+          </div>
+
+          <ul class="badges">
+            <li>✅ Responsive</li>
+            <li>⚡ Rapide</li>
+            <li>🔎 SEO de base</li>
+          </ul>
+        </div>
+
+        <div class="hero-card">
+          <p class="kicker">Disponible</p>
+          <h2>Création / Refonte</h2>
+          <p>Tu veux un site propre, moderne, et qui donne confiance? On fait simple, efficace, et surtout fini.</p>
+          <a class="link" href="#contact">Me contacter →</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="section">
+      <div class="container">
+        <h2>Services</h2>
+        <p class="muted">Des prestations claires. Pas de blabla, pas de jargon.</p>
+
+        <div class="cards">
+          <article class="card">
+            <h3>Création de site</h3>
+            <p>Un site vitrine sur-mesure, prêt à présenter ton activité et à générer des contacts.</p>
+          </article>
+
+          <article class="card">
+            <h3>Refonte</h3>
+            <p>Un coup de jeunesse: design moderne, mobile-friendly, meilleure lisibilité, meilleures performances.</p>
+          </article>
+
+          <article class="card">
+            <h3>Optimisation</h3>
+            <p>Vitesse, structure SEO de base, accessibilité, bonnes pratiques pour un site plus solide.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="process" class="section alt">
+      <div class="container">
+        <h2>Process</h2>
+        <div class="steps">
+          <div class="step"><span>1</span><h3>Brief</h3><p>On définit l’objectif, le contenu, le style.</p></div>
+          <div class="step"><span>2</span><h3>Maquette</h3><p>Structure claire avant de coder.</p></div>
+          <div class="step"><span>3</span><h3>Développement</h3><p>Intégration responsive, propre.</p></div>
+          <div class="step"><span>4</span><h3>Mise en ligne</h3><p>Déploiement, tests, finalisation.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="portfolio" class="section">
+      <div class="container">
+        <h2>Réalisations</h2>
+        <p class="muted">Même si tu débutes, on peut mettre des projets démo propres.</p>
+
+        <div class="cards">
+          <article class="card">
+            <h3>Projet démo: Restaurant</h3>
+            <p>Landing page avec menu, réservation, contact.</p>
+            <span class="tag">Démo</span>
+          </article>
+
+          <article class="card">
+            <h3>Projet démo: Artisan</h3>
+            <p>Présentation services + galerie + formulaire.</p>
+            <span class="tag">Démo</span>
+          </article>
+
+          <article class="card">
+            <h3>Projet démo: Coach</h3>
+            <p>Offres, témoignages, prise de rendez-vous.</p>
+            <span class="tag">Démo</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="offres" class="section alt">
+      <div class="container">
+        <h2>Offres</h2>
+        <div class="pricing">
+          <div class="price card">
+            <h3>Starter</h3>
+            <p class="big">à partir de X€</p>
+            <ul>
+              <li>One-page</li>
+              <li>Responsive</li>
+              <li>Formulaire contact</li>
+            </ul>
+          </div>
+
+          <div class="price card featured">
+            <h3>Pro</h3>
+            <p class="big">à partir de X€</p>
+            <ul>
+              <li>Multi-sections</li>
+              <li>SEO de base</li>
+              <li>Optimisation vitesse</li>
+            </ul>
+          </div>
+
+          <div class="price card">
+            <h3>Refonte</h3>
+            <p class="big">sur devis</p>
+            <ul>
+              <li>Audit rapide</li>
+              <li>Modernisation</li>
+              <li>Amélioration mobile</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <div class="container">
+        <h2>Contact</h2>
+        <p class="muted">Tu me décris ton besoin, je te réponds rapidement.</p>
+
+        <form class="form" id="contactForm">
+          <label>
+            Nom
+            <input required name="name" type="text" placeholder="Ton nom" />
+          </label>
+
+          <label>
+            Email
+            <input required name="email" type="email" placeholder="ton@email.com" />
+          </label>
+
+          <label>
+            Message
+            <textarea required name="message" rows="5" placeholder="Dis-moi ce que tu veux construire ou refondre"></textarea>
+          </label>
+
+          <button class="btn" type="submit">Envoyer</button>
+          <p class="form-note" id="formNote" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <p>© <span id="year"></span> Johan. Tous droits réservés.</p>
+      <p class="muted">Création & refonte de sites web.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Menu mobile
+    const burger = document.getElementById("burger");
+    const menu = document.getElementById("menu");
+
+    burger.addEventListener("click", () => {
+      const isOpen = menu.classList.toggle("open");
+      burger.setAttribute("aria-expanded", String(isOpen));
+    });
+
+    // Fermer le menu quand on clique un lien
+    menu.querySelectorAll("a").forEach(a => {
+      a.addEventListener("click", () => {
+        menu.classList.remove("open");
+        burger.setAttribute("aria-expanded", "false");
+      });
+    });
+
+    // Année auto
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Faux envoi de formulaire (pour l’instant)
+    const form = document.getElementById("contactForm");
+    const note = document.getElementById("formNote");
+
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      note.textContent = "Message prêt. (Plus tard on branchera un vrai envoi.)";
+      form.reset();
+    });
+  </script>
+</body>
+</html>
