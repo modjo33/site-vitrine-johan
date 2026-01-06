@@ -32,7 +32,10 @@
       <div class="container hero-grid">
         <div>
           <h1>Je crée des sites web modernes pour les entreprises.</h1>
-          <p class="lead">Création de zéro ou refonte de site existant. Un site rapide, responsive et clair, pensé pour convertir.</p>
+          <p class="lead">
+            Création de zéro ou refonte de site existant. Un site rapide,
+            responsive et clair, pensé pour convertir.
+          </p>
           <div class="cta">
             <a class="btn" href="#contact">Demander un devis</a>
             <a class="btn ghost" href="#portfolio">Voir des exemples</a>
@@ -48,7 +51,10 @@
         <div class="hero-card">
           <p class="kicker">Disponible</p>
           <h2>Création / Refonte</h2>
-          <p>Tu veux un site propre, moderne, et qui donne confiance? On fait simple, efficace, et surtout fini.</p>
+          <p>
+            Tu veux un site propre, moderne, et qui donne confiance ?
+            On fait simple, efficace, et surtout fini.
+          </p>
           <a class="link" href="#contact">Me contacter →</a>
         </div>
       </div>
@@ -62,94 +68,18 @@
         <div class="cards">
           <article class="card">
             <h3>Création de site</h3>
-            <p>Un site vitrine sur-mesure, prêt à présenter ton activité et à générer des contacts.</p>
+            <p>Un site vitrine sur-mesure, prêt à générer des contacts.</p>
           </article>
 
           <article class="card">
             <h3>Refonte</h3>
-            <p>Un coup de jeunesse: design moderne, mobile-friendly, meilleure lisibilité, meilleures performances.</p>
+            <p>Design moderne, mobile-friendly, meilleures performances.</p>
           </article>
 
           <article class="card">
             <h3>Optimisation</h3>
-            <p>Vitesse, structure SEO de base, accessibilité, bonnes pratiques pour un site plus solide.</p>
+            <p>Vitesse, SEO de base, accessibilité, bonnes pratiques.</p>
           </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="process" class="section alt">
-      <div class="container">
-        <h2>Process</h2>
-        <div class="steps">
-          <div class="step"><span>1</span><h3>Brief</h3><p>On définit l’objectif, le contenu, le style.</p></div>
-          <div class="step"><span>2</span><h3>Maquette</h3><p>Structure claire avant de coder.</p></div>
-          <div class="step"><span>3</span><h3>Développement</h3><p>Intégration responsive, propre.</p></div>
-          <div class="step"><span>4</span><h3>Mise en ligne</h3><p>Déploiement, tests, finalisation.</p></div>
-        </div>
-      </div>
-    </section>
-
-    <section id="portfolio" class="section">
-      <div class="container">
-        <h2>Réalisations</h2>
-        <p class="muted">Même si tu débutes, on peut mettre des projets démo propres.</p>
-
-        <div class="cards">
-          <article class="card">
-            <h3>Projet démo: Restaurant</h3>
-            <p>Landing page avec menu, réservation, contact.</p>
-            <span class="tag">Démo</span>
-          </article>
-
-          <article class="card">
-            <h3>Projet démo: Artisan</h3>
-            <p>Présentation services + galerie + formulaire.</p>
-            <span class="tag">Démo</span>
-          </article>
-
-          <article class="card">
-            <h3>Projet démo: Coach</h3>
-            <p>Offres, témoignages, prise de rendez-vous.</p>
-            <span class="tag">Démo</span>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="offres" class="section alt">
-      <div class="container">
-        <h2>Offres</h2>
-        <div class="pricing">
-          <div class="price card">
-            <h3>Starter</h3>
-            <p class="big">à partir de X€</p>
-            <ul>
-              <li>One-page</li>
-              <li>Responsive</li>
-              <li>Formulaire contact</li>
-            </ul>
-          </div>
-
-          <div class="price card featured">
-            <h3>Pro</h3>
-            <p class="big">à partir de X€</p>
-            <ul>
-              <li>Multi-sections</li>
-              <li>SEO de base</li>
-              <li>Optimisation vitesse</li>
-            </ul>
-          </div>
-
-          <div class="price card">
-            <h3>Refonte</h3>
-            <p class="big">sur devis</p>
-            <ul>
-              <li>Audit rapide</li>
-              <li>Modernisation</li>
-              <li>Amélioration mobile</li>
-            </ul>
-          </div>
         </div>
       </div>
     </section>
@@ -165,7 +95,7 @@
           action="https://formspree.io/f/mzdzlwvo"
           method="POST"
         >
-          <input type="hidden" name="_subject" value="Nouveau message - Site vitrine" />
+          <input type="hidden" name="_subject" value="Nouvelle demande de contact" />
           <input type="text" name="_gotcha" class="hp" tabindex="-1" autocomplete="off" />
 
           <label>
@@ -180,7 +110,8 @@
 
           <label>
             Message
-            <textarea required name="message" rows="5" placeholder="Dis-moi ce que tu veux construire ou refondre"></textarea>
+            <textarea required name="message" rows="5"
+              placeholder="Dis-moi ce que tu veux construire ou refondre"></textarea>
           </label>
 
           <button class="btn" id="submitBtn" type="submit">Envoyer</button>
@@ -207,9 +138,8 @@
       burger.setAttribute("aria-expanded", String(isOpen));
     });
 
-    // Fermer le menu quand on clique un lien
-    menu.querySelectorAll("a").forEach(a => {
-      a.addEventListener("click", () => {
+    menu.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
         menu.classList.remove("open");
         burger.setAttribute("aria-expanded", "false");
       });
@@ -218,7 +148,7 @@
     // Année auto
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    // Envoi Formspree (AJAX)
+    // Formspree AJAX
     const form = document.getElementById("contactForm");
     const note = document.getElementById("formNote");
     const submitBtn = document.getElementById("submitBtn");
@@ -226,9 +156,8 @@
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
 
-      // Anti spam: si le champ honeypot est rempli, on fait comme si tout allait bien.
       const gotcha = form.querySelector('input[name="_gotcha"]');
-      if (gotcha && gotcha.value.trim() !== "") {
+      if (gotcha.value) {
         note.textContent = "Merci ! Ton message a bien été envoyé ✅";
         form.reset();
         return;
@@ -239,11 +168,9 @@
       note.textContent = "Envoi en cours...";
 
       try {
-        const formData = new FormData(form);
-
         const res = await fetch(form.action, {
-          method: form.method,
-          body: formData,
+          method: "POST",
+          body: new FormData(form),
           headers: { "Accept": "application/json" }
         });
 
@@ -251,10 +178,10 @@
           note.textContent = "Merci ! Ton message a bien été envoyé ✅";
           form.reset();
         } else {
-          note.textContent = "Oups, l’envoi a échoué. Réessaie ou contacte-moi par email.";
+          note.textContent = "Erreur lors de l’envoi. Réessaie.";
         }
-      } catch (err) {
-        note.textContent = "Erreur réseau. Vérifie ta connexion et réessaie.";
+      } catch {
+        note.textContent = "Erreur réseau.";
       } finally {
         submitBtn.disabled = false;
         submitBtn.textContent = "Envoyer";
