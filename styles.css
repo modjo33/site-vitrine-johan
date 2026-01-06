@@ -433,34 +433,3 @@ input:focus, textarea:focus{outline:2px solid rgba(110,168,254,0.35)}
     gap:16px;
   }
 }
-/* ===== FIX MODAL (centré + visible) ===== */
-.modal{
-  position: fixed;
-  inset: 0;
-  display: none;
-  z-index: 9999;
-}
-
-.modal.open{
-  display: grid;
-  place-items: center;
-}
-
-.modal-backdrop{
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.55);
-}
-
-.modal-card{
-  position: relative;
-  width: min(720px, 92%);
-  max-height: 85vh;
-  overflow: auto;
-  margin: 0;
-  background: rgba(18,20,27,0.95);
-  border: 1px solid var(--border);
-  border-radius: 18px;
-  padding: 16px;
-  backdrop-filter: blur(8px);
-}
