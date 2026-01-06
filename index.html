@@ -260,7 +260,8 @@
       burger.setAttribute("aria-expanded", String(isOpen));
     });
 
-    menu.querySelectorAll("a").forEach(link => {
+    // Fermer le menu quand on clique un lien
+    menu.querySelectorAll("a").forEach((link) => {
       link.addEventListener("click", () => {
         menu.classList.remove("open");
         burger.setAttribute("aria-expanded", "false");
@@ -268,7 +269,8 @@
     });
 
     // Année auto
-    document.getElementById("year").textContent = new Date().getFullYear();
+    const yearEl = document.getElementById("year");
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
 
     // Formspree AJAX
     const form = document.getElementById("contactForm");
@@ -337,6 +339,14 @@
           if (icon) icon.textContent = "–";
         }
       });
+    });
+
+    // Fermer le menu mobile au scroll
+    window.addEventListener("scroll", () => {
+      if (menu.classList.contains("open")) {
+        menu.classList.remove("open");
+        burger.setAttribute("aria-expanded", "false");
+      }
     });
   </script>
 </body>
