@@ -105,24 +105,36 @@
         <h2>Réalisations</h2>
         <p class="muted">Des projets démo (pour l’instant). Bientôt des vrais, évidemment.</p>
 
-        <div class="cards">
-          <article class="card">
+        <div class="cards portfolio-cards">
+          <button class="card portfolio-card" type="button"
+            data-title="Restaurant"
+            data-subtitle="Landing page moderne pour restaurant"
+            data-desc="Une page claire et élégante pour présenter le restaurant, donner envie, et récupérer des réservations."
+            data-features="Menu en ligne|Galerie photos|Horaires & plan|Bouton réservation / appel|Formulaire de contact">
             <h3>Projet démo: Restaurant</h3>
             <p>Landing page avec menu, réservation, contact.</p>
             <span class="tag">Démo</span>
-          </article>
+          </button>
 
-          <article class="card">
+          <button class="card portfolio-card" type="button"
+            data-title="Artisan"
+            data-subtitle="Site vitrine pour artisan"
+            data-desc="Un site qui inspire confiance, explique les services et montre le travail via une galerie."
+            data-features="Présentation des services|Galerie avant/après|Zone avis clients|Formulaire rapide|CTA WhatsApp">
             <h3>Projet démo: Artisan</h3>
             <p>Présentation services + galerie + formulaire.</p>
             <span class="tag">Démo</span>
-          </article>
+          </button>
 
-          <article class="card">
+          <button class="card portfolio-card" type="button"
+            data-title="Coach"
+            data-subtitle="Site pour coach / consultant"
+            data-desc="Une page orientée conversion: offres claires, preuves sociales, et prise de contact simple."
+            data-features="Offres & packs|Témoignages|FAQ|Formulaire|Lien prise de RDV">
             <h3>Projet démo: Coach</h3>
             <p>Offres, témoignages, prise de rendez-vous.</p>
             <span class="tag">Démo</span>
-          </article>
+          </button>
         </div>
       </div>
     </section>
@@ -250,6 +262,31 @@
     </div>
   </footer>
 
+  <!-- Modal Portfolio -->
+  <div class="modal" id="portfolioModal" aria-hidden="true">
+    <div class="modal-backdrop" data-close="true"></div>
+
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div class="modal-head">
+        <div>
+          <p class="modal-subtitle" id="modalSubtitle"></p>
+          <h3 class="modal-title" id="modalTitle"></h3>
+        </div>
+        <button class="modal-close" type="button" aria-label="Fermer" data-close="true">✕</button>
+      </div>
+
+      <p class="modal-desc" id="modalDesc"></p>
+
+      <h4 class="modal-h4">Inclus</h4>
+      <ul class="modal-list" id="modalList"></ul>
+
+      <div class="modal-actions">
+        <a class="btn" href="#contact" id="modalCta">Demander ce style de site</a>
+        <button class="btn ghost" type="button" data-close="true">Fermer</button>
+      </div>
+    </div>
+  </div>
+
   <script>
     // Menu mobile
     const burger = document.getElementById("burger");
@@ -346,6 +383,67 @@
       if (menu.classList.contains("open")) {
         menu.classList.remove("open");
         burger.setAttribute("aria-expanded", "false");
+      }
+    });
+
+    // Portfolio modal
+    const modal = document.getElementById("portfolioModal");
+    const modalTitle = document.getElementById("modalTitle");
+    const modalSubtitle = document.getElementById("modalSubtitle");
+    const modalDesc = document.getElementById("modalDesc");
+    const modalList = document.getElementById("modalList");
+    const modalCta = document.getElementById("modalCta");
+
+    function openModalFromCard(card) {
+      const title = card.dataset.title || "Projet";
+      const subtitle = card.dataset.subtitle || "";
+      const desc = card.dataset.desc || "";
+      const features = (card.dataset.features || "").split("|").filter(Boolean);
+
+      modalTitle.textContent = title;
+      modalSubtitle.textContent = subtitle;
+      modalDesc.textContent = desc;
+
+      modalList.innerHTML = "";
+      features.forEach((f) => {
+        const li = document.createElement("li");
+        li.textContent = f;
+        modalList.appendChild(li);
+      });
+
+      modal.classList.add("open");
+      modal.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+
+      // Pré-remplissage sympa (une fois)
+      modalCta.addEventListener("click", () => {
+        const textarea = document.querySelector('textarea[name="message"]');
+        if (textarea && textarea.value.trim() === "") {
+          textarea.value = `Bonjour, je voudrais un site dans le style "${title}".\nObjectif : ...\nDélai : ...\nBudget : ...`;
+        }
+      }, { once: true });
+    }
+
+    function closeModal() {
+      modal.classList.remove("open");
+      modal.setAttribute("aria-hidden", "true");
+      document.body.style.overflow = "";
+    }
+
+    document.querySelectorAll(".portfolio-card").forEach((card) => {
+      card.addEventListener("click", () => openModalFromCard(card));
+    });
+
+    modal.addEventListener("click", (e) => {
+      const target = e.target;
+      if (target && target.dataset && target.dataset.close === "true") {
+        closeModal();
+      }
+    });
+
+    window.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && modal.classList.contains("open")) {
+        closeModal();
       }
     });
   </script>
